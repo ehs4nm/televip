@@ -21,10 +21,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/fjoavndgqjtivmywzuxkopenaerzdfewmhwtqrimjpchantyjlujvbjhaiocxxfzrnujqlvlapdapzahuhkjupygtmeidzlkajosvdfdvnssztawcyfthllnriffhtie/webhook', [TelegramController::class, 'start']);
+// Route::post(
+//     '/fjoavndgqjtivmywzuxkopenaerzdfewmhwtqrimjpchantyjlujvbjhaiocxxfzrnujqlvlapdapzahuhkjupygtmeidzlkajosvdfdvnssztawcyfthllnriffhtie/webhook',
+//     fn () =>  Telegram::commandsHandler(true)
+// );
+// Route::post('/fjoavndgqjtivmywzuxkopenaerzdfewmhwtqrimjpchantyjlujvbjhaiocxxfzrnujqlvlapdapzahuhkjupygtmeidzlkajosvdfdvnssztawcyfthllnriffhtie/webhook', [TelegramController::class, 'start']);
 
 
-Route::get('/setwebhook', function () {
-    $response = Telegram::setWebhook(['url' =>  env('TELEGRAM_WEBHOOK_URL')]);
-    dd($response);
-});
+// Route::get('/setwebhook', function () {
+//     $response = Telegram::setWebhook(['url' =>  env('TELEGRAM_WEBHOOK_URL')]);
+//     dd($response);
+// });
+
+Route::get('/orders/{id}', [PaymentController::class, 'pay'])->name('pay');
+// Route::get('/payments/{id}', [PaymentController::class, 'pay'])->name('payments.pay');
+Route::get('/payments/callback', [PaymentController::class, 'callback']);
+Route::post('/payments/callback', [PaymentController::class, 'callback'])->name('payments.callback');

@@ -12,7 +12,8 @@
         "irazasyed/telegram-bot-sdk": "^3.9",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
-        "laravel/tinker": "^2.7"
+        "laravel/tinker": "^2.7",
+        "shetabit/payment": "^5.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
